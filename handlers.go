@@ -21,7 +21,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func TodolistIndex(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	w.WriteHeader(http.StatusOK)
-	if err := json.NewEncoder(w).Encode(List); err != nil {
+	if err := json.NewEncoder(w).Encode(list); err != nil { // "list" is from repo.go
 		panic(err)
 	}
 }
@@ -95,7 +95,7 @@ func TodolistCreate(w http.ResponseWriter, r *http.Request) { // function signat
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	w.WriteHeader(http.StatusCreated)
 
-	if err = json.NewEncoder(w).Endode(t); err != nil {
+	if err = json.NewEncoder(w).Encode(t); err != nil {
 		panic(err)
 	}
 }
